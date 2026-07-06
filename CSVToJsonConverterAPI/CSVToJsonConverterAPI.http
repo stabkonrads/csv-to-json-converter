@@ -4,3 +4,11 @@ GET {{CSVToJsonConverterAPI_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+@limit=10
+GET {{CSVToJsonConverterAPI_HostAddress}}/api/users?limit={{limit}}
+
+###
+GET {{CSVToJsonConverterAPI_HostAddress}}/api/users?limit=-10
+
+###
+GET {{CSVToJsonConverterAPI_HostAddress}}/api/users/
