@@ -1,3 +1,5 @@
+using CSVToJsonConverterAPI.Repositories;
+using CSVToJsonConverterAPI.Repositories.Interfaces;
 using CSVToJsonConverterAPI.Services;
 using CSVToJsonConverterAPI.Services.Interfaces;
 
@@ -12,6 +14,7 @@ builder.Services.AddOpenApi();
 
 // Used Dependency Injections
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 
