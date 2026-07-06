@@ -1,3 +1,7 @@
+using CSVToJsonConverterAPI.Services;
+using CSVToJsonConverterAPI.Services.Interfaces;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Used Dependency Injections
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
