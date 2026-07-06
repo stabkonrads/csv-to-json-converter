@@ -1,6 +1,9 @@
-﻿namespace CSVToJsonConverterAPI.Repositories.Interfaces
+﻿using System.Text.Json.Nodes;
+
+namespace CSVToJsonConverterAPI.Repositories.Interfaces
 {
     public interface IUserRepository
     {
+        JsonArray GetUsers();
     }
 }

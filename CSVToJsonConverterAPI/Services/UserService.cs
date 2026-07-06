@@ -1,5 +1,6 @@
 ﻿using CSVToJsonConverterAPI.Repositories.Interfaces;
 using CSVToJsonConverterAPI.Services.Interfaces;
+using System.Text.Json.Nodes;
 
 namespace CSVToJsonConverterAPI.Services
 {
@@ -9,6 +10,11 @@ namespace CSVToJsonConverterAPI.Services
         public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
+        }
+
+        public JsonArray GetUsersFromRepo()
+        {
+            return _userRepository.GetUsers();
         }
     }
 }
