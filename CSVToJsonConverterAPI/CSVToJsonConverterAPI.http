@@ -1,0 +1,6 @@
+@CSVToJsonConverterAPI_HostAddress = http://localhost:5041
+
+GET {{CSVToJsonConverterAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
