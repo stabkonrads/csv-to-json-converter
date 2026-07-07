@@ -1,14 +1,19 @@
 @CSVToJsonConverterAPI_HostAddress = http://localhost:5041
 
-GET {{CSVToJsonConverterAPI_HostAddress}}/weatherforecast/
-Accept: application/json
+### Test endpoint and should return result 200 JSONarray with user objects.
+GET {{CSVToJsonConverterAPI_HostAddress}}/api/users/
 
-###
+### Test endpoint and should return result 200 JSONarray with user objects.
+### Change limit to fetch given amount from the user 
 @limit=10
 GET {{CSVToJsonConverterAPI_HostAddress}}/api/users?limit={{limit}}
 
-###
-GET {{CSVToJsonConverterAPI_HostAddress}}/api/users?limit=-10
+### Test endpoint and should return result 200 JSONarray with user objects.
+### Change limit to fetch given amount from the user.
+### Bigger limit than lines in csv-file. Returns all users.
+@limit=20
+GET {{CSVToJsonConverterAPI_HostAddress}}/api/users?limit={{limit}}
 
-###
-GET {{CSVToJsonConverterAPI_HostAddress}}/api/users/
+### Test endpoint and should return result 400 Bad Request
+### Endpoint should not accept negative value as parameter for limit.
+GET {{CSVToJsonConverterAPI_HostAddress}}/api/users?limit=-10

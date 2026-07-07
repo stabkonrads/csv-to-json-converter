@@ -135,6 +135,9 @@ namespace CSVToJsonConverterAPI.Repositories
                 User user = CreateUser(strings);
 
                 jsonArray.Add(user);
+
+                if (i == dataSource.Length - 1)
+                    break;
             }
             return jsonArray;
         }
