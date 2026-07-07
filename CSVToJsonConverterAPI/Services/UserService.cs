@@ -12,9 +12,12 @@ namespace CSVToJsonConverterAPI.Services
             _userRepository = userRepository;
         }
 
-        public JsonArray GetUsersFromRepo()
+        public JsonArray GetUsersFromRepo(int limit)
         {
-            return _userRepository.GetUsers();
+            if (limit == 0)
+                return _userRepository.GetUsers();
+            else
+                return _userRepository.GetLimitedUsers(limit);
         }
     }
 }

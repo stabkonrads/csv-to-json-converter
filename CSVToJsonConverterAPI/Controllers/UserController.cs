@@ -23,8 +23,10 @@ namespace CSVToJsonConverterAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [EndpointDescription("Returns a JSONarray with user objects. " +
+            "If no parameter is set all the users gets returned. " +
+            "If a parameter with integervalue is given then the limited result is returned.")]
         public async Task<IActionResult> GetUsers(int limit)
         {   
             // Checks if limit has a negative number and returns 400 Bad Request
@@ -33,13 +35,13 @@ namespace CSVToJsonConverterAPI.Controllers
 
             try
             {
-                JsonArray result = _userService.GetUsersFromRepo();
+                JsonArray result = _userService.GetUsersFromRepo(limit);
 
                 // If the file is empty or no rows are found return 204 No Content
                 if (result.Count < 1)
                     return NoContent();
 
-                // TODO update the controller to return the result.
+                // Returns the result.
                 return Ok(result);
             }
 
