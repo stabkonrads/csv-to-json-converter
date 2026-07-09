@@ -4,14 +4,13 @@
 GET {{CSVToJsonConverterAPI_HostAddress}}/api/users/
 
 ### Test endpoint and should return result 200 JSONarray with user objects.
-### Change limit to fetch given amount from the user 
-@limit=10
-GET {{CSVToJsonConverterAPI_HostAddress}}/api/users?limit={{limit}}
-
-### Test endpoint and should return result 200 JSONarray with user objects.
 ### Change limit to fetch given amount from the user.
 ### Bigger limit than lines in csv-file. Returns all users.
-@limit=20
+GET {{CSVToJsonConverterAPI_HostAddress}}/api/users?limit=20
+
+### Test endpoint and should return result 200 JSONarray with user objects.
+### Change limit to fetch given amount from the user 
+@limit=10
 GET {{CSVToJsonConverterAPI_HostAddress}}/api/users?limit={{limit}}
 
 ### Test endpoint and should return result 400 Bad Request
